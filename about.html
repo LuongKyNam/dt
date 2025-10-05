@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>LetGiVi Editor Audio Mixer - LKN 1991</title>
+	<script>
+//Ngăn chặn F5
+var reloadedByF5 = false;
+
+window.onload = function() {
+    reloadedByF5 = false;
+};
+
+window.addEventListener('keydown', function(event) {
+    if (event.keyCode === 116) { // 116 là mã phím của F5
+        reloadedByF5 = true;
+    }
+});
+
+window.addEventListener('beforeunload', function(event) {
+    if (reloadedByF5) {
+        event.preventDefault();
+        event.returnValue = 'Trang không thể tải lại bằng phím F5.';
+    }
+});
+// Ngăn chặn Ctrl+U
+document.onkeydown = function(e) {
+    if(e.ctrlKey && e.keyCode == 85) {
+        return false;
+    }
+};
+
+// Ngăn chặn F12
+document.addEventListener('keydown', function(e) {
+    if(e.key === "F12") {
+        e.preventDefault();
+    }
+});
+
+// Ngăn chặn hiện menu khi chuột phải
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+});
+
+// Ngăn chặn hiện menu khi chuột phải ở trên hình ảnh
+document.addEventListener('mousedown', function(event) {
+    if(event.button == 2) {
+        event.preventDefault();
+        return false;
+    }
+});
+</script>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>  
+
+	<meta name="description" content="LetGiVi Editor Audio Mixer là một ứng dụng âm thanh &amp; công cụ chỉnh sửa dạng sóng"/>
+	<meta property="og:image" content="../icon.jpg"/>
+	<meta property="og:title" content="LetGiVi Editor Audio Mixer">
+	<meta property="og:url" content="https://audiomass.co/">
+	<meta property="og:description" content="LetGiVi Editor Audio Mixer là một ứng dụng âm thanh &amp; công cụ chỉnh sửa dạng sóng">
+	<meta name="keywords" content="LetGiVi, WebAudio, Mixer, audio editing, chỉnh sửa âm thanh miễn phí, audio tool, công cụ âm thanh, waveform editor, sound editor, open source">
+	<link href="/ico.ico" rel="shortcut icon">
+
+<style>
+	body{
+		padding:0;margin:0;
+		font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		color:rgb(5, 10, 5);
+		background:#fefefe
+	}
+	#w{
+		width: 90%;
+		max-width:960px;
+		margin:0 auto
+	}
+
+	#w > div{
+		padding:20px 0 0 0
+	}
+
+	p{
+		line-height:21px;
+		font-size:16px;
+		margin-bottom:1.2em
+	}
+
+	h1{
+		font-size: 26px;
+		margin-top:35px
+	}
+
+	h5{
+		font-size:1em;
+		margin-bottom:0
+	}
+
+	.top{
+		max-width:100%;
+		outline:0;
+		display:inline-block
+	}
+
+	.mid{
+		max-width:504px;
+		width: 90%;
+		outline:0;
+		margin-bottom:16px;
+		display:inline-block
+	}
+
+	.nomarg{
+		margin-bottom:0
+	}
+
+	pre {
+	    padding:12px 16px;
+	    display:inline-block;
+	    border-radius:6px;
+	    background:#e1f3e9;
+	    text-shadow:0 1px #fff;
+	    border-bottom:1px solid #aaa;
+	    max-width:90%;
+	    overflow:scroll
+	}
+
+	ul {
+		padding:0;
+		list-style:none
+	}
+
+	li {
+		padding:0 0 3px 0;
+		color:#333;
+		font-size:0.92em
+	}
+
+	video {
+		max-width:660px;
+		width:90%;
+	}
+
+	::-moz-selection { background: #080808; color:#fff; text-shadow:none }
+	::selection { background: #080808;  color:#fff; text-shadow:none }
+</style>
+</head>
+<body>
+<div id="w">
+
+
+<div>
+<h1>LetGiVi Editor Audio Mixer (<a href="https://letgivi.0hi.me" target="_blank">https://letgivi.0hi.me</a>) một công cụ chỉnh sửa dạng sóng và âm thanh chạy Lương Kỳ Nam 1991.</h1>
+
+
+<img class="top" src="/about/audiomass_top.jpg" />
+
+
+<p>LetGiVi Editor Audio Mixer cho phép bạn ghi hoặc sử dụng các bản âm thanh hiện có của mình và sửa đổi chúng bằng cách cắt, cắt, dán hoặc áp dụng vô số hiệu ứng, từ bộ cân bằng nén và phân đoạn cho đến hồi âm, độ trễ và biến dạng fx. AudioMass cũng hỗ trợ hơn 20 tổ hợp phím nóng và giao diện đáp ứng động để đảm bảo dễ sử dụng và năng suất của bạn vẫn cao.
+nó chỉ được viết bằng javascript kiểu cũ, nặng khoảng 65kb và không có phụ thuộc vào khung hoặc phụ trợ.</p>
+
+<img class="mid" src="/about/audiomass_support.jpg" />
+<p>Nó cũng có hỗ trợ trình duyệt và thiết bị rất tốt.</p>
+
+
+<h5>:: Danh sách tính năng ::</h5>
+
+<ul>
+<li>Đang tải âm thanh, điều hướng dạng sóng, thu phóng và xoay</li>
+<li>Trực quan hóa các mức tần số</li>
+<li>Tín hiệu đỉnh và méo</li>
+<li>Cắt/Dán/Cắt các phần của âm thanh</li>
+<li>Đảo ngược và đảo ngược âm thanh</li>
+<li>Xuất sang mp3</li>
+<li>Sửa đổi mức âm lượng</li>
+<li>Làm mờ dần vào/ra</li>
+<li>Máy nén</li>
+<li>Chuẩn hóa</li>
+<li>Hồi âm</li>
+<li>Trì hoãn</li>
+<li>Biến dạng</li>
+<li>Thay đổi cao độ</li>
+<li>Theo dõi các trạng thái để bạn có thể hoàn tác các lỗi</li>
+<li>Hỗ trợ ngoại tuyến!</li>
+</ul>
+
+<p>Và tất cả những điều này, chỉ trong 83kb JS!</p>
+</div>
+
+
+<div>
+<h3>Bắt đầu</h3>
+
+
+<p>Để bắt đầu, hãy kéo và thả tệp âm thanh hoặc thử mẫu đi kèm.<br />
+Sau khi tệp được tải và bạn có thể xem dạng sóng, phóng to, xoay xung quanh hoặc chọn một vùng.</p>
+
+<img class="mid" src="/about/audiomass_2.jpg" />
+
+
+<h3>Ghi âm thanh</h3>
+
+<p>Để ghi âm, chỉ cần nhấn nút Ghi âm hoặc nút <i>[R]</i> key.</p>
+
+<img class="mid" src="/about/audiomass_3.jpg" />
+
+
+<h3>Xuất sang mp3</h3>
+
+<p>Để xuất trở lại mp3, hãy nhấp vào 'Tệp', sau đó nhấp vào 'Xuất sang mp3' và làm theo hướng dẫn của phương thức.</p>
+
+<img class="mid" src="/about/audiomass_4.jpg" />
+
+</div>
+
+
+<hr />
+
+
+<div>
+<h3>Câu chuyện đằng sau LetGiVi Editor Audio Mixer. Và một đoạn ngắn về giao diện web.</h3>
+
+<p>Tôi đã viết LetGiVi Editor Audio Mixer vào tháng 6 năm 2018 và nó vẫn không hoạt động trên đĩa cứng của tôi cho đến khi tôi quyết định chia sẻ nó với mọi người vào ngày hôm nay (ngày 13, 19 tháng 7 -- nhưng bạn có thể sẽ thấy điều này vào năm 2020. Xin chào!!).
+Nó bắt đầu như một công cụ cá nhân nhỏ để hiển thị nhanh các dạng sóng. Sau này tôi đã thêm khả năng cắt/sao chép/dán cũng như làm mờ dần. Và ngay sau đó tính năng tốt và chủ nghĩa cầu toàn đã chiếm ưu thế! Ngay sau đó, việc xem nó có thể tiến gần đến mức nào so với trình chỉnh sửa dạng sóng đầy đủ tính năng trong khi vẫn duy trì hiệu suất chấp nhận được và kích thước tệp nhỏ đã trở thành một thách thức.</p>
+
+<p>Nói chung tôi rất yêu thích giao diện của DAW <i>(Digital Audio Workstations)</i>, chúng cực kỳ, phức tạp, phức tạp, linh hoạt và chúng cố gắng duy trì sự dễ chịu về mặt thị giác ngay cả khi thông qua các tùy chọn và nút bấm vô tận. Nhiều lần tôi cảm thấy trang web đã có một bước đi rất sai lầm, vì các giao diện tuyệt vời như...
+
+<p class="nomarg">Sonar</p>
+<img class="mid" src="/about/sonar.jpg" />
+
+<br />
+<p class="nomarg">Fruity loops</p>
+<img class="mid" src="/about/fruity.png" />
+
+<br />
+
+<p>Đã tồn tại hơn 10-15 năm nay, trong khi chúng tôi đang vật lộn với việc tạo hoạt ảnh cho một số hình chữ nhật ở tốc độ 60 khung hình/giây... Vì vậy, đối với AudioMass, tôi muốn thử tạo một giao diện nhanh và hiệu quả. Lấy cảm hứng từ các ví dụ tôi đã đề cập trước đó thay vì các phương pháp phát triển web truyền thống. Đây là lý do không thuyết phục nhưng trung thực của tôi về lý do tại sao mã xấu; nó tập trung vào việc nhanh chóng và hoàn thành công việc mà ít quan tâm đến cấu trúc.</p>
+
+</div>
+
+<hr />
+
+<div>
+
+<h3>Xây dựng giao diện</h3>
+
+<p>Let's say we have a <i>"PLAY"</i> và khi chúng ta nhấn nút đó, bản nhạc sẽ bắt đầu phát. Tôi cho rằng chúng ta muốn màu sắc và trạng thái của nút phản ánh rằng bản nhạc hiện đang phát. Thật ngây thơ, chúng tôi sẽ làm một cái gì đó như;</p>
+
+
+<pre><code>btn.onclick = function () {
+	this.classList.add ('active');
+};</code></pre>
+
+<p>Nhưng điều gì sẽ xảy ra nếu chúng ta có một phím nóng kích hoạt hành động tương tự? Let's say we press <i>[SPACEBAR]</i> và bản nhạc bắt đầu phát. Chúng ta có sửa đổi lớp của nút đó trong trình xử lý của phím cách không?
+
+</p>
+
+<pre><code>document.onkeypress = function ( e ) { 
+  if ( e.keyCode === 32) {
+       e.preventDefault ();
+
+       document.querySelector ('.playbtn').classList.add ('active');
+  }
+};</code></pre>
+
+<p>Và điều gì sẽ xảy ra nếu có 2 nút hoặc một nút bị loại bỏ động? Chúng ta có thực hiện selectAll và lặp lại không? Ừm...<br />
+Và nếu bản nhạc đang phát và chúng ta đánh <i>[SPACEBAR]</i> hoặc lại nhấn nút play thì chúng ta cần dừng chơi. Sau đó chúng ta phải làm gì? Bạn có thể thấy điều này trở nên lộn xộn rất nhanh khi mọi thứ được kết hợp rất chặt chẽ với nhau trong một quả bóng phụ thuộc lớn.</p>
+
+
+
+<p>Giới thiệu mẫu người quan sát. Hành động được thể hiện bằng sự kiện. Vì vậy logic trên và được thể hiện như;</p>
+
+
+<pre><code>btn.onclick = function () {
+	FireEvent ('RequestTogglePlay');
+};
+
+On ('WillPlay', function () {
+	btn.classList.add ('active');
+});
+
+On ('WillStop', function () {
+	btn.classList.remove ('active');
+});
+
+
+
+document.onkeypress = function ( e ) {
+  if ( e.keyCode === 32) {
+       e.preventDefault ();
+
+       FireEvent ('RequestTogglePlay');
+  }
+};
+
+
+
+On ('RequestTogglePlay', function () {
+	if (track.is_playing) {
+		FireEvent ('WillStop');
+		track.stop ();
+	}
+	else {
+		FireEvent ('WillPlay');
+		track.play ();
+	}
+});
+
+track.onPlayStart = function () {
+	FireEvent ('DidPlay');
+};
+track.onPlayStop = function () {
+	FireEvent ('DidStop');
+};
+</code></pre>
+
+<p>Bây giờ điều này đã hoàn toàn tách rời và không phụ thuộc! Nút sẽ đặt trạng thái theo các sự kiện mà nó nhận được và cả nút và phím phím cách đều dựa trên các cơ chế giống nhau.
+Bạn có thể nhận thấy từ vựng chúng tôi đang sử dụng. <i>"Yêu cầu"</i>, <i>"Sẽ"</i> và <i>"Đã làm"</i>. Chúng được chọn tùy ý để áp đặt một số cấu trúc bổ sung.<br /> <i>"Yêu cầu"</i> biểu thị ý định thực hiện một hành động, không đảm bảo rằng hành động đó sẽ được thực thi vì có thể có các điều kiện ngăn cản nó (ví dụ: được đơn vị hóa hoặc vẫn đang tải đối tượng) <i>"Sẽ"</i> có nghĩa là các điều kiện đã được đáp ứng và chúng tôi đang cố gắng thực hiện hành động. Và <i>"Đã làm"</i> có nghĩa là hành động vừa được thực hiện.<br />
+Nó có thể hơi dài dòng một chút nhưng nó hoạt động rất tốt trong việc cấu trúc giao diện của LetGiVi Editor Audio Mixer.</p>
+</div>
+
+<hr />
+
+<div>
+<h3>Giao diện người dùng có thể gắn được</h3>
+
+<p>Một điều tôi thích ở giao diện DAW là mọi cửa sổ đều có thể được kéo ra khỏi máy chủ chính. Tôi rất nhớ có 3 màn hình chứa đầy plugin VST. Vậy chúng ta có thể làm điều tương tự trên trình duyệt không?</p>
+
+
+<video src="dock_ui.mp4" autoplay muted playsinline controls loop></video>
+
+
+<p>Đúng! Và nó đang sử dụng một số thủ thuật lâu đời nhất trong cuốn sách. Về cơ bản, chúng tôi tạo một cửa sổ bật lên với <i>window.open</i> và chỉ cần chuyển bộ đệm tới nó <i>documentWindow</i> đối tượng. Đáng ngạc nhiên là nó hoạt động khá hiệu quả trên tất cả các trình duyệt ngoại trừ IE Edge. Tôi tin rằng họ đang tuần tự hóa theo ascii hoặc base64 mỗi gói hoặc thứ gì đó. Ngoài ra, Chrome còn có một lỗi thú vị là bạn không thể vượt qua bộ đệm lớn hơn 512 byte.</p>
+
+<p>Vì vậy, đối với cửa sổ chưa được gắn đế, chúng tôi gọi <i>window.open</i>. Nhưng làm thế nào để chúng ta làm cho nó hoạt động khi nó được gắn vào đế? Sẽ khá cồng kềnh nếu viết cùng một chức năng hai lần, một lần dưới dạng trang độc lập và một lần dưới dạng tập lệnh trong trang. May mắn thay, chúng ta có thể tránh được điều đó hoàn toàn và sử dụng lại cùng một trang bằng cách sử dụng iframe.</p>
+
+<p>Điểm khác biệt duy nhất là phiên bản không gắn đế sử dụng  <i>window.opener</i> để giới thiệu cha mẹ của nó, trong khi iframe sử dụng <i>window.parent</i>.</p>
+
+</div>
+
+
+<hr />
+
+<div>
+<h3>Cân nhắc về công việc và hiệu suất trong tương lai</h3>
+
+<p>Tính năng lớn tiếp theo được lên kế hoạch là hỗ trợ nhiều bản nhạc. Khả năng kết hợp các bản nhạc và các âm thanh khác nhau hiện còn thiếu và tính hữu dụng của nó hiện tại còn hạn chế.</p>
+
+<hr />
+
+<p>Ngoài ra còn có rất nhiều chỗ để cải thiện ở hầu hết các khía cạnh.</p>
+
+<p>Trước hết, chúng tôi có thể giảm thêm kích thước tệp khoảng 20kb bằng cách xóa thư viện mà chúng tôi đang sử dụng để hiển thị dạng sóng. Chúng tôi chỉ sử dụng một phần chức năng của nó nên không có lý do gì để đưa tất cả vào.</p>
+
+<p>Chúng tôi cũng có thể tối ưu hóa rất nhiều việc hiển thị dạng sóng. Tôi đã sửa đổi rất nhiều thư viện được sử dụng để tính toán và chỉ vẽ phạm vi hiển thị. Tuy nhiên, nó vẫn đang xóa và vẽ lại tất cả khung vẽ ở mỗi khung. Chúng ta có thể tận dụng lệnh gọi dịch của Ngữ cảnh 2d và dịch chuyển khung vẽ xung quanh thay vì vẽ lại tất cả các pixel.</p>
+
+<p>Chúng ta cũng có thể di chuyển một số thao tác sang luồng nền, chẳng hạn như xử lý bộ lọc để giao diện người dùng không bị treo khi áp dụng một chuỗi hiệu ứng dài.</p>
+
+<br />
+
+
+<p>Tuy nhiên, vấn đề lớn nhất tôi gặp phải là chính API Web Audio. Mọi thao tác đều dẫn đến việc lặp lại nhiều mảng dài trên mỗi khung. Cuối cùng, máy thu gom rác phát ra tiếng nổ và tiếng kêu lách tách. Cách duy nhất để giải quyết vấn đề này là sử dụng fftSize nhỏ, nhưng khi đó dải tần chúng ta phải làm việc rất hẹp. Có lẽ việc triển khai WASM thuần túy sẽ hiệu quả hơn việc cố gắng sửa đổi tín hiệu âm thanh bằng JS. Tôi đoán chỉ có một cách để tìm hiểu :) </p>
+<p>Ngoài ra, <i>decodeAudioData</i> không cung cấp lệnh gọi lại tiến trình và không có cách nào để hủy nó. Vì vậy, nếu bạn cố tải một tệp âm thanh lớn, bạn sẽ lãng phí tài nguyên cho đến khi nó được xử lý. Hiện tại không có cách nào giải quyết vấn đề này và nó có thể gây khó chịu nếu bạn nhấn nhầm một tệp lớn.</p>
+
+</div>
+
+<br /><br /><br />
+
+</div>
+</body>
+
+</html>

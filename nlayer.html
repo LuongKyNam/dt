@@ -1,0 +1,162 @@
+<div style="background:#000; color:#0f0; font-family:Arial,sans-serif; padding:20px; max-width:500px; margin:auto; text-align:center;">
+
+  <h1>Playlist MP3</h1>
+
+  <!-- Vùng thông tin bài hát -->
+  <div id="currentTrack" style="margin-bottom:20px;">
+    <img id="trackImage" src="" alt="" style="width:100%; max-height:300px; object-fit:cover; display:none; border:2px solid #0f0;">
+    <h2 id="trackTitle" style="margin:10px 0 5px;"></h2>
+    <p id="trackDesc" style="margin:0;"></p>
+  </div>
+
+  <!-- Nút điều khiển -->
+  <div style="margin:15px 0;">
+    <button id="prevBtn" style="background:#0f0; color:#000; border:none; padding:10px 20px; margin:0 5px; cursor:pointer;">⏮️ Prev</button>
+    <button id="nextBtn" style="background:#0f0; color:#000; border:none; padding:10px 20px; margin:0 5px; cursor:pointer;">Next ⏭️</button>
+  </div>
+
+  <!-- Danh sách -->
+  <ul id="playlist" style="list-style:none; padding:0; text-align:left;">
+    <li data-src="https://archive.org/download/nha-c-remix-tiktok-hot-trend-2025-bxh-nhac-tre-remix-hay-nhat-hien-nay-top-25-remix-thinh-hanh-f-v/NH%E1%BA%A0C%20REMIX%20TIKTOK%20HOT%20TREND%202025%20-%20BXH%20Nh%E1%BA%A1c%20Tr%E1%BA%BB%20Remix%20Hay%20Nh%E1%BA%A5t%20Hi%E1%BB%87n%20Nay%F0%9F%8E%BCTop%2025%20Remix%20Th%E1%BB%8Bnh%20H%C3%A0nh%20%5BfV.mp3"
+        data-title="1.REMIX TIKTOK HOT TREND 2025"
+        data-img="https://i.ytimg.com/vi/86noWAP5TvQ/hq720.jpg"
+        data-desc="NHẠC REMIX TIKTOK HOT TREND 2025 - BXH Nhạc Trẻ Remix Hay Nhất Hiện Nay🎼Top 25 Remix Thịnh Hành">
+      1.REMIX TIKTOK HOT TREND 2025
+    </li>
+    <li data-src="https://archive.org/download/nha-c-remix-tiktok-hot-trend-2025-bxh-nhac-tre-remix-hay-nhat-hien-nay-top-25-remix-thinh-hanh-i-1/NH%E1%BA%A0C%20REMIX%20TIKTOK%20HOT%20TREND%202025%20-%20BXH%20Nh%E1%BA%A1c%20Tr%E1%BA%BB%20Remix%20Hay%20Nh%E1%BA%A5t%20Hi%E1%BB%87n%20Nay%F0%9F%8E%BCTop%2025%20Remix%20Th%E1%BB%8Bnh%20H%C3%A0nh%20%5BI1.mp3"
+        data-title="2.NHẠC REMIX TIKTOK HOT TREND 2025"
+        data-img="https://i.ytimg.com/vi/obOyoQZkua0/hq720.jpg"
+        data-desc="NHẠC REMIX TIKTOK HOT TREND 2025 - BXH Nhạc Trẻ Remix Hay Nhất Hiện Nay🎼Top 25 Remix Thịnh Hành">
+      2.NHẠC REMIX TIKTOK HOT TREND 2025
+    </li>
+    <li data-src="https://archive.org/download/nha-c-remix-tiktok-trie-u-view-bxh-nhac-tre-remix-hay-nhat-hien-nay-top-20-nhac-tik-tok-hay-2025-p/NH%E1%BA%A0C%20REMIX%20TIKTOK%20TRI%E1%BB%86U%20VIEW%20-%20BXH%20Nh%E1%BA%A1c%20Tr%E1%BA%BB%20Remix%20Hay%20Nh%E1%BA%A5t%20Hi%E1%BB%87n%20Nay%20-%20Top%2020%20Nh%E1%BA%A1c%20TikTok%20Hay%202025%20%5BP.mp3"
+        data-title="3.NHẠC REMIX TIKTOK TRIỆU VIEW"
+        data-img="https://i.ytimg.com/vi/yK4bE-_qxHo/hq720.jpg"
+        data-desc="NHẠC REMIX TIKTOK TRIỆU VIEW - BXH Nhạc Trẻ Remix Hay Nhất Hiện Nay - Top 20 Nhạc TikTok Hay 2025">
+      3.NHẠC REMIX TIKTOK TRIỆU VIEW
+    </li>
+    <li data-src="https://archive.org/download/top-30-nhac-remix-tik-tok-hay-nha-t-2024-khuat-loi-dau-o-day-nay-tinh-ta-hai-nga-cafe-khong-duong/TOP%2030%20Nh%E1%BA%A1c%20Remix%20TikTok%20HAY%20NH%E1%BA%A4T%202024%20%7C%20Khu%E1%BA%A5t%20L%E1%BB%91i%2C%20%C4%90au%20%E1%BB%9E%20%C4%90%C3%A2y%20N%C3%A0y%2C%20T%C3%ACnh%20Ta%20Hai%20Ng%C3%A3%2C%20Cafe%20Kh%C3%B4ng%20%C4%90%C6%B0%E1%BB%9Dng.mp3"
+        data-title="4.TOP 30 Nhạc Remix TikTok HAY NHẤT 2024"
+        data-img="https://i.ytimg.com/vi/esx2_aA6AMM/hq720.jpg"
+        data-desc="TOP 30 Nhạc Remix TikTok HAY NHẤT 2024 | Khuất Lối, Đau Ở Đây Này, Tình Ta Hai Ngã, Cafe Không Đường">
+      4.TOP 30 Nhạc Remix TikTok HAY NHẤT 2024
+    </li>
+    <li data-src="https://archive.org/download/nha-c-tre-remix-2024-hay-nha-t-hie-n-nay-edm-tik-tok-orinn-remix-lk-nhac-tre-remix-2024-cuc-hay-oc/NH%E1%BA%A0C%20TR%E1%BA%BA%20REMIX%202024%20HAY%20NH%E1%BA%A4T%20HI%E1%BB%86N%20NAY%20-%20EDM%20Tik%20Tok%20ORINN%20REMIX%20-%20Lk%20Nh%E1%BA%A1c%20Tr%E1%BA%BB%20Remix%202024%20C%E1%BB%B1c%20Hay%20%5Boc.mp3"
+        data-title="5.NHẠC TRẺ REMIX 2024 HAY NHẤT HIỆN NAY"
+        data-img="https://i.ytimg.com/vi/lyMnhrgDQjo/hq720.jpg"
+        data-desc="NHẠC TRẺ REMIX 2024 HAY NHẤT HIỆN NAY - EDM Tik Tok ORINN REMIX - Lk Nhạc Trẻ Remix 2024 Cực Hay">
+      5.NHẠC TRẺ REMIX 2024 HAY NHẤT HIỆN NAY
+    </li>
+  </ul>
+
+  <!-- Player -->
+  <audio id="audioPlayer" controls style="width:100%; margin-top:20px;"></audio>
+
+  <script>
+    const player = document.getElementById('audioPlayer');
+    const items = document.querySelectorAll('#playlist li');
+    const trackTitle = document.getElementById('trackTitle');
+    const trackImage = document.getElementById('trackImage');
+    const trackDesc = document.getElementById('trackDesc');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let currentIndex = 0;
+
+    items.forEach((item, index) => {
+      item.style.padding = '10px';
+      item.style.margin = '5px 0';
+      item.style.border = '1px solid #0f0';
+      item.style.cursor = 'pointer';
+
+      item.addEventListener('click', () => {
+        playTrack(index);
+      });
+
+      item.addEventListener('mouseover', () => {
+        if (index !== currentIndex) {
+          item.style.background = '#0f0';
+          item.style.color = '#000';
+        }
+      });
+
+      item.addEventListener('mouseout', () => {
+        if (index !== currentIndex) {
+          item.style.background = '';
+          item.style.color = '#0f0';
+        }
+      });
+    });
+
+    function playTrack(index) {
+      if (index >= 0 && index < items.length) {
+        // Reset style
+        items.forEach(i => {
+          i.style.background = '';
+          i.style.color = '#0f0';
+        });
+
+        // Highlight
+        items[index].style.background = '#0f0';
+        items[index].style.color = '#000';
+
+        const src = items[index].getAttribute('data-src');
+        const title = items[index].getAttribute('data-title');
+        const img = items[index].getAttribute('data-img');
+        const desc = items[index].getAttribute('data-desc');
+
+        player.src = src;
+        player.play();
+
+        trackTitle.textContent = title || '';
+        if (img) {
+          trackImage.src = img;
+          trackImage.style.display = 'block';
+        } else {
+          trackImage.style.display = 'none';
+        }
+        trackDesc.textContent = desc || '';
+
+        currentIndex = index;
+      }
+    }
+
+    // Auto next
+    player.addEventListener('ended', () => {
+      nextTrack();
+    });
+
+    // Next / Prev buttons
+    nextBtn.addEventListener('click', nextTrack);
+    prevBtn.addEventListener('click', prevTrack);
+
+    function nextTrack() {
+      let nextIndex = currentIndex + 1;
+      if (nextIndex >= items.length) nextIndex = 0;
+      playTrack(nextIndex);
+    }
+
+    function prevTrack() {
+      let prevIndex = currentIndex - 1;
+      if (prevIndex < 0) prevIndex = items.length - 1;
+      playTrack(prevIndex);
+    }
+
+    // Tự động phát bài đầu tiên khi load trang
+    window.addEventListener('load', () => {
+      playTrack(0);
+    });
+  </script>
+
+</div>
+
+<script>
+  // Gửi chiều cao thật sự ra cho iframe parent
+  function sendHeight() {
+    const height = document.body.scrollHeight;
+    parent.postMessage({ type: 'setHeight', height: height }, '*');
+  }
+
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+</script>
